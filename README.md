@@ -36,8 +36,6 @@ BOJ 12100(2048 (Easy)) 풀이 코드를 기반으로, 실제 플레이 가능한
 - `Main`: 실행 엔트리포인트
 
 ## Run
-- Eclipse에서 `Main` 실행
-- 또는 CLI에서:
-  ```bash
-  javac -d bin src/Main.java
-  java -cp bin Main
+- Windows PowerShell 에서 실행 권장
+```bash
+javac -encoding UTF-8 -d bin src\*.java; java -cp bin src.Main
