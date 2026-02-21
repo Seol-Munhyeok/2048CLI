@@ -37,7 +37,12 @@ BOJ 12100(2048 (Easy)) 풀이 코드를 기반으로, 실제 플레이 가능한
 
 ## Run
 - Windows PowerShell 에서 실행 권장
+- 최신 Windows Terminal 사용 권장
 ```bash
 javac -encoding UTF-8 -d bin src\*.java
 java -cp bin src.Main
 ```
+
+<img width="608" height="380" alt="image" src="https://github.com/user-attachments/assets/e8a71024-0903-4a25-8e9a-04c38428e0a7" />
+
+<img width="421" height="372" alt="image" src="https://github.com/user-attachments/assets/0415b344-e2a8-4e15-9b6a-7e0b1668159a" />
