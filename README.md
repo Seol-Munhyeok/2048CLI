@@ -1,0 +1,50 @@
+# 2048CLI
+
+BOJ 12100(2048 (Easy)) 풀이 코드를 기반으로, 실제 플레이 가능한 콘솔( CLI ) 2048 게임으로 확장하는 프로젝트.
+
+## 목표
+- 기존 풀이 코드(DFS로 5수 탐색 + move 시뮬레이션)를 재사용/리팩터링하여
+  - 사용자가 직접 입력(W/A/S/D 등)으로 플레이 가능한 2048 게임을 구현한다.
+- 게임 로직(이동/합치기)과 UI(출력/입력)를 분리해서 유지보수 가능한 구조로 만든다.
+
+## 현재 상태
+- `Main.java`에 BOJ 12100 풀이 로직이 구현되어 있음:
+  - `push(dir) -> merge(dir) -> push(dir)`로 한 번의 이동 처리
+  - `dfs(0)`에서 최대 5번 이동 탐색하여 최댓값 블록을 계산
+
+## 구현 핵심 로직 요약
+- `push(dir)`: 0이 아닌 타일을 한쪽으로 압축
+- `merge(dir)`: 인접한 동일 타일을 규칙에 따라 1회 병합
+- `move(dir)`: `push -> merge -> push` 순서로 한 턴 이동 완성
+- `dfs(cnt)`: 4방향을 5번까지 완전탐색, 최대 블록 값 갱신
+
+## 확장 계획 (실제 게임)
+- 입력 루프 추가:
+  - 사용자 입력(W/A/S/D 또는 방향키 대체)을 받아 `move(dir)` 수행
+  - 이동 결과가 없으면(보드 변화 없음) 턴 무효 처리
+- 랜덤 타일 생성:
+  - 매 유효 이동 후 빈 칸에 2/4 생성(보통 2가 더 높은 확률)
+- 게임 종료 조건:
+  - 빈 칸 없음 + 어느 방향으로도 merge 불가 시 Game Over
+- 출력(UI):
+  - 매 턴 보드를 보기 좋게 출력
+  - 점수(선택) 및 최고 블록 표시
+
+## 권장 리팩터링 구조
+- `Board`: 보드 상태, move/merge/spawn/isGameOver
+- `Game`: 입력 처리, 루프, 출력
+- `Main`: 실행 엔트리포인트
+
+## Run
+- Windows PowerShell 에서 실행 권장
+- 최신 Windows Terminal 사용 권장
+- 2048CLI 폴더에서
+```bash
+mkdir bin
+javac -encoding UTF-8 -d bin src\*.java
+java -cp bin src.Main
+```
+
+<img width="608" height="380" alt="image" src="https://github.com/user-attachments/assets/e8a71024-0903-4a25-8e9a-04c38428e0a7" />
+
+<img width="421" height="372" alt="image" src="https://github.com/user-attachments/assets/0415b344-e2a8-4e15-9b6a-7e0b1668159a" />
