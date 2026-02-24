@@ -38,6 +38,7 @@ BOJ 12100(2048 (Easy)) 풀이 코드를 기반으로, 실제 플레이 가능한
 ## Run
 - Windows PowerShell 에서 실행 권장
 - 최신 Windows Terminal 사용 권장
+- 2048CLI 폴더에서
 ```bash
 mkdir bin
 javac -encoding UTF-8 -d bin src\*.java
